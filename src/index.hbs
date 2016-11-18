@@ -24,6 +24,26 @@
       <div id="regexp-render"></div>
     </div>
 
+    <div class="tests">
+      <h3>Testing</h3>
+
+      <form id="testing-form">
+      <textarea id="test-input" autofocus="autofocus" placeholder="Enter the testing string see the matches"></textarea>
+      <button type="submit">Test Match</button>
+      <input id="chkGlobalMatch" type="checkbox"></input><label for="chkGlobalMatch">global match</label>
+      <input id="chkIgnoreCase" type="checkbox"></input><label for="chkIgnoreCase">ignore case</label>
+      </form>
+    </div>
+
+    <div class="test-results">
+      <div id="test-error" class="error">
+      </div>
+      <ol id="test-result">
+
+      </ol>
+    </div>
+
+
   {{/content}}
 
   {{#content "footer" mode="append"}}
