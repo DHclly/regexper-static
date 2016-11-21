@@ -8,6 +8,7 @@ export default class MatchTesting {
     this.testStringElm = root.querySelector('#test-input');
     this.globalElm = root.querySelector('#chkGlobalMatch');
     this.ignoreCaseElm = root.querySelector('#chkIgnoreCase');
+    this.multilineElm = root.querySelector('#chkMultiline');
 
     this.testResult = root.querySelector('#test-result');
     this.errorElm = root.querySelector('#test-error');
@@ -34,15 +35,21 @@ export default class MatchTesting {
 
     try {
       this.errorElm.style.display = 'none';
-      const regString = this.regField.value;
+      let regString = this.regField.value;
       const testString = this.testStringElm.value;
 
       const options = [];
       this.globalElm.checked ? options.push('g') : void 0;
       this.ignoreCaseElm.checked ? options.push('i') : void 0;
+      this.multilineElm.checked ? options.push('m') : void 0;
 
+      if (regString.charAt(0) === '/' && regString.charAt(regString.length - 1) === '/') {
+        regString = regString.substring(1, regString.length - 1);
+      }
       const reg = new RegExp(regString, options.join(''));
       const result = testString.match(reg);
+      console.log('matches...');
+      console.log(result);
 
       if (!result) {
         this.errorElm.textContent = 'No matches.';
@@ -50,15 +57,20 @@ export default class MatchTesting {
         this.testResult.style.display = 'none';
         return;
       }
+
+      this.testResult.style.display = 'block';
+
       const frag = document.createDocumentFragment();
       const lis = result.forEach((mt, idx) => {
         let li = document.createElement("li");
         li.textContent = `${idx}: ${mt}`;
         frag.appendChild(li);
       });
+
       while(this.testResult.firstChild) {
         this.testResult.removeChild(this.testResult.firstChild);
       }
+
       this.testResult.appendChild(frag);
     }
     catch(e) {

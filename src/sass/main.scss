@@ -238,16 +238,18 @@ header {
   }
 
   .test-results {
+      display: none;
       background: $white;
-      width: 100%;
       margin-top: rhythm(1);
       padding: 7px;
-
-      .error {
-          background: #b3151a;
-          color: #fff;
-      }
   }
+
+  .test-error {
+      margin-top: rhythm(1);
+      background: #b3151a;
+      color: #fff;
+  }
+
   .tests {
       margin-top: 15px;
       label {
