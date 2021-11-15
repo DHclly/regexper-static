@@ -22,6 +22,9 @@ describe('parser/javascript/subexp.js', function() {
     '(?:test)': {
       regexp: jasmine.objectContaining({ textValue: 'test' }),
       proxy: jasmine.objectContaining({ textValue: 'test' })
+    },
+    '(?<name>test)': {
+      regexp: jasmine.objectContaining({ textValue: 'test' })
     }
   }, (content, str) => {
     it(`parses "${str}" as a Subexp`, function() {
@@ -107,6 +110,10 @@ describe('parser/javascript/subexp.js', function() {
       },
       '(?:test)': {
         label: '',
+        groupCounter: 1
+      },
+      '(?<name>test)': {
+        label: 'group \'name\'',
         groupCounter: 1
       }
     }, (data, str) => {
