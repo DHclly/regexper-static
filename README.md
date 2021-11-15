@@ -1,13 +1,6 @@
 # Regexper
 
-This repo forked from [javallone/regexper-static](https://github.com/javallone/regexper-static)
-
-I add the match testing display to the amazing regexper tool.
-
-![screen capture](screen/capture.jpeg)
-
-**IMPORTANT**
- This repo was still working on progress, No testing for this func yet...
+Code for the http://regexper.com/ site.
 
 ## Contributing
 
