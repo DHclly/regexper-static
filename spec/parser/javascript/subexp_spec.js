@@ -25,7 +25,13 @@ describe('parser/javascript/subexp.js', function() {
     },
     '(?<name>test)': {
       regexp: jasmine.objectContaining({ textValue: 'test' })
-    }
+    },
+    '(?<=test)': {
+      regexp: jasmine.objectContaining({ textValue: 'test' })
+    },
+    '(?<!test)': {
+      regexp: jasmine.objectContaining({ textValue: 'test' })
+    },
   }, (content, str) => {
     it(`parses "${str}" as a Subexp`, function() {
       var parser = new javascript.Parser(str);
@@ -115,7 +121,15 @@ describe('parser/javascript/subexp.js', function() {
       '(?<name>test)': {
         label: 'group \'name\'',
         groupCounter: 1
-      }
+      },
+      '(?<=test)': {
+        label: 'positive lookbehind',
+        groupCounter: 1
+      },
+      '(?<!test)': {
+        label: 'negative lookbehind',
+        groupCounter: 1
+      },
     }, (data, str) => {
       it(`generates the correct label for "${str}"`, function() {
         var node = new javascript.Parser(str).__consume__subexp();
