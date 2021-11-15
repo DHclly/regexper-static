@@ -9,6 +9,7 @@ import '../sass/main.scss';
 
 import util from './util.js';
 import Regexper from './regexper.js';
+import TestingMatch from './testing.js';
 import Parser from './parser/javascript.js';
 import _ from 'lodash';
 
@@ -24,6 +25,9 @@ import _ from 'lodash';
     util.tick().then(() => {
       window.dispatchEvent(util.customEvent('hashchange'));
     });
+
+    const testingMatch = new TestingMatch(document.body);
+    testingMatch.bindListeners();
   }
 
   // Initialize other pages on the site (specifically the documentation page).
