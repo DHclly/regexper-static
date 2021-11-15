@@ -243,6 +243,8 @@ header {
       }
   }
   .application, .tests {
+    color:white;
+    font-weight: bold;
     position: relative;
     @include clearfix;
 
@@ -271,6 +273,8 @@ header {
       width: 100px;
       border: 0 none;
       background: $green;
+      color: white;
+      font-weight: bold;
       background: linear-gradient(to bottom, $green 0%, $dark-green 100%);
       float: left;
       cursor: pointer;
