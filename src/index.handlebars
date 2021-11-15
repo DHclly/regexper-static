@@ -2,15 +2,18 @@
 
 <div class="application">
   <form id="regexp-form">
-    <textarea id="regexp-input" autofocus="autofocus" placeholder="Enter JavaScript-style regular expression to display"></textarea>
-    <button type="submit">Display</button>
+    <textarea id="regexp-input" autofocus="autofocus"
+      placeholder="Enter JavaScript-style regular expression to display"></textarea>
+    <button type="submit">显示</button>
 
     <ul class="inline-list">
       <li class="download-svg">
-        <a href="#" class="inline-icon" data-action="download-svg" download="image.svg" type="image/svg+xml">{{icon "#data-transfer-download"}}Download SVG</a>
+        <a href="#" class="inline-icon" data-action="download-svg" download="image.svg" type="image/svg+xml">{{icon
+          "#data-transfer-download"}}下载 SVG 图片</a>
       </li>
       <li class="download-png">
-        <a href="#" class="inline-icon" data-action="download-png" download="image.png" type="image/png">{{icon "#data-transfer-download"}}Download PNG</a>
+        <a href="#" class="inline-icon" data-action="download-png" download="image.png" type="image/png">{{icon
+          "#data-transfer-download"}}下载 PNG 图片</a>
       </li>
       <li class="permalink">
         <a href="#" class="inline-icon" data-action="permalink">{{icon "#link-intact"}}Permalink</a>
@@ -25,6 +28,25 @@
   <ul id="warnings"></ul>
 
   <div id="regexp-render"></div>
+
+  <div class="tests">
+    <h3 style="margin-bottom: 10px">测试</h3>
+
+    <form id="testing-form">
+      <textarea id="test-input" autofocus="autofocus" placeholder="Enter the testing string see the matches"></textarea>
+      <button type="submit">测试匹配</button>
+      <input id="chkGlobalMatch" type="checkbox"></input><label for="chkGlobalMatch">全局匹配(g)</label>
+      <input id="chkIgnoreCase" type="checkbox"></input><label for="chkIgnoreCase">忽略大小写(i)</label>
+      <input id="chkMultiline" type="checkbox"></input><label for="chkMultiline">多行匹配(m)</label>
+    </form>
+  </div>
+
+  <div id="test-error" class="test-error">
+  </div>
+
+  <ol id="test-result" class="test-results">
+
+  </ol>
 </div>
 
 {{> page_bottom}}
