@@ -11,6 +11,7 @@
   "private": true,
   "scripts": {
     "docs": "docco-toc --output ./docs $(find ./src/js -name '*.js')",
+    "docs-win-ps": "docco-toc --output ./docs $(Get-ChildItem -Name *.js)",
     "pretest": "eslint .",
     "test": "karma start --single-run",
     "build": "webpack",
