@@ -15,7 +15,7 @@ export default {
     // Translation to apply to content to be repeated to account for the loop
     // and skip lines.
     contentPosition: {
-      get: function() {
+      get: function () {
         var matrix = Snap.matrix();
 
         if (this.hasSkip) {
@@ -31,7 +31,7 @@ export default {
     // Label to place of loop path to indicate the number of times that path
     // may be followed.
     label: {
-      get: function() {
+      get: function () {
         if (this.minimum === this.maximum) {
           if (this.minimum === 0) {
             return undefined;
@@ -51,7 +51,7 @@ export default {
 
     // Tooltip to place of loop path label to provide further details.
     tooltip: {
-      get: function() {
+      get: function () {
         let repeatCount;
         if (this.minimum === this.maximum) {
           if (this.minimum === 0) {
